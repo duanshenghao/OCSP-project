@@ -1,0 +1,22 @@
+server:
+  port: 21005
+spring:
+  application:
+    name: ocsp-project-business
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_ADDRESS} #Nacos服务注册中心地址
+        file-extension: yaml #指定yaml格式的配置
+        group: business-teller-project
+        namespace: ${NACOS_NAMESPACE}
+        extension-configs:
+          - data-id: ribbon.yaml
+            group: atom-common-ribbon
+            refresh: true
+          - data-id: redis.yaml
+            group: atom-common-redis
+            refresh: true
+        refresh-enabled: true
+      username: nacos
+      password: nacos

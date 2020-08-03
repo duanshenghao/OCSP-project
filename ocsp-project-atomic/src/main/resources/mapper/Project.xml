@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csftgroup.ocsp.atomic.project.manage.mapper.ProjectMapper">
+    <select id="queryCount" resultType="java.lang.String">
+        select DISTINCT(t.project_id) from sub_project t where t.project_id = (SELECT p.project_id from project p where p.id = #{id})
+    </select>
+</mapper>
